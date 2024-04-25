@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function renderAutomationScreen() {
   document.querySelector(".automation").addEventListener("click", function() {
     var automationContainer = document.getElementById('automation-container');
+    document.getElementById('widget-container').style.display = 'none';
     automationContainer.style.display = 'block';
     automationContainer.innerHTML = '<select style="margin-bottom:30px" name="language" id="language">' +
       '<option value="activeCampaign">Active Campaign</option>' +
@@ -79,6 +80,7 @@ function renderAutomationScreen() {
 
     document.querySelector(".goBackToWidget").addEventListener("click", function() {
       automationContainer.style.display = 'none';
+      appendWidgetCode()
     });
   });
 }
