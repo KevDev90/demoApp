@@ -7,7 +7,7 @@
 <title>Trustpilot Widget Selector</title>
 </head>
 <body>
-<select style="margin-bottom:30px" name="language" id="language">
+<select id="widget-selector"  style="margin-bottom:30px" name="language" id="language">
   <option value="Mini" selected>Mini</option>
   <option value="Carousel">Carousel</option>
   <option value="Slider">Slider</option>
@@ -68,7 +68,7 @@ function renderAutomationScreen() {
   document.querySelector(".automation").addEventListener("click", function() {
     var automationContainer = document.getElementById('automation-container');
     var widgetContainer = document.getElementById('widget-container');
-
+document.getElementById('widget-selector').style.display = 'none';
     // Hide the widget container
     widgetContainer.style.display = 'none';
 
