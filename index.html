@@ -28,21 +28,50 @@
 <!-- Your custom JavaScript code -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  // Select the dropdown element
-  var selectElement = document.getElementById('language');
-  // Select the container where widget code will be appended
-  var widgetContainer = document.getElementById('widget-container');
-  var automationContainer = document.getElementById('automation-container');
+  // Initial append of Mini widget code
+  appendWidgetCode('<!-- TrustBox widget - Mini --><div class="trustpilot-widget" data-locale="en-GB" data-template-id="53aa8807dec7e10d38f59f32" data-businessunit-id="63d2b393898cf1df6ab24eff" data-style-height="150px" data-style-width="100%" data-theme="light"><a href="https://uk.trustpilot.com/review/trustpilot-integration-demo.tp-testing.com" target="_blank" rel="noopener">Trustpilot</a></div><!-- End TrustBox widget -->');
+});
 
-  // Function to append widget code
-  function appendWidgetCode(widgetCode) {
-    widgetContainer.innerHTML = widgetCode;
-  }
+function appendWidgetCode(widgetCode) {
+  var widgetContainer = document.getElementById('widget-container');
+  widgetContainer.innerHTML = widgetCode;
+}
+
+function renderAutomationScreen() {
+  var automationContainer = document.getElementById('automation-container');
+  var widgetContainer = document.getElementById('widget-container');
+  var widgetSelector = document.getElementById('widget-selector');
+
+  // Hide the widget container
+  widgetContainer.style.display = 'none';
+  // Hide the widget selector
+  widgetSelector.style.display = 'none';
+
+  // Show the automation container
+  automationContainer.style.display = 'block';
+  automationContainer.innerHTML = '<select style="margin-bottom:30px" name="language" id="automation-language">' +
+    '<option value="activeCampaign">Active Campaign</option>' +
+    '<option value="Carousel">Carousel</option>' +
+    '<option value="Slider">Slider</option>' +
+    '<option value="Product Mini">Product Mini</option>' +
+    '<option value="Product SEO">Product SEO</option>' +
+    '</select>' +
+    '<button class="goBackToWidget">Go Back to Widget</button>';
+
+  // Add event listener to the goBackToWidget button
+  document.querySelector(".goBackToWidget").addEventListener("click", function() {
+    // Hide the automation container
+    automationContainer.style.display = 'none';
+    // Show the widget container
+    widgetContainer.style.display = 'block';
+    // Show the widget selector
+    widgetSelector.style.display = 'block';
+  });
 
   // Add event listener for change event
-  selectElement.addEventListener('change', function() {
+  document.getElementById('automation-language').addEventListener('change', function() {
     // Get the selected value
-    var selectedOption = selectElement.value;
+    var selectedOption = this.value;
 
     // Append corresponding widget code based on selected option
     if (selectedOption === 'Mini') {
@@ -57,45 +86,10 @@ document.addEventListener("DOMContentLoaded", function() {
       // Add corresponding code for 'Product SEO' if needed
     }
   });
-
-  // Initial append of Mini widget code
-  appendWidgetCode('<!-- TrustBox widget - Mini --><div class="trustpilot-widget" data-locale="en-GB" data-template-id="53aa8807dec7e10d38f59f32" data-businessunit-id="63d2b393898cf1df6ab24eff" data-style-height="150px" data-style-width="100%" data-theme="light"><a href="https://uk.trustpilot.com/review/trustpilot-integration-demo.tp-testing.com" target="_blank" rel="noopener">Trustpilot</a></div><!-- End TrustBox widget -->');
-});
-
-function renderAutomationScreen() {
-  document.querySelector(".automation").addEventListener("click", function() {
-    var automationContainer = document.getElementById('automation-container');
-    var widgetContainer = document.getElementById('widget-container');
-    var widgetSelector = document.getElementById('widget-selector');
-
-    // Hide the widget container
-    widgetContainer.style.display = 'none';
-    // Hide the widget selector
-    widgetSelector.style.display = 'none';
-
-    // Show the automation container
-    automationContainer.style.display = 'block';
-    automationContainer.innerHTML = '<select style="margin-bottom:30px" name="language" id="automation-language">' +
-      '<option value="activeCampaign">Active Campaign</option>' +
-      '<option value="Carousel">Carousel</option>' +
-      '<option value="Slider">Slider</option>' +
-      '<option value="Product Mini">Product Mini</option>' +
-      '<option value="Product SEO">Product SEO</option>' +
-      '</select>' +
-      '<button class="goBackToWidget">Go Back to Widget</button>';
-
-    // Add event listener to the goBackToWidget button
-    document.querySelector(".goBackToWidget").addEventListener("click", function() {
-      // Hide the automation container
-      automationContainer.style.display = 'none';
-      // Show the widget container
-      widgetContainer.style.display = 'block';
-      // Show the widget selector
-      widgetSelector.style.display = 'block';
-    });
-  });
 }
-renderAutomationScreen()
+
+document.querySelector(".automation").addEventListener("click", renderAutomationScreen);
+
 </script>
 <!-- End your custom JavaScript code -->
 
