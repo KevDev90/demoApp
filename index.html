@@ -19,7 +19,7 @@
   <!-- Widget code will be appended here -->
 </div>
 
-<div id="automation-container">
+<div id="automation-container" style="display: none;">
   <!-- Automation code will be appended here -->
 </div>
 
@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var selectElement = document.getElementById('language');
   // Select the container where widget code will be appended
   var widgetContainer = document.getElementById('widget-container');
+  var automationContainer = document.getElementById('automation-container');
 
   // Function to append widget code
   function appendWidgetCode(widgetCode) {
@@ -65,58 +66,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function renderAutomationScreen() {
   document.querySelector(".automation").addEventListener("click", function() {
-  
-  document.getElementById("automation-container").innerHTML += '<select style="margin-bottom:30px" name="language" id="language">' +
-  '<option value="activeCampaign">Active Campaign</option>' +
-  '<option value="Carousel">Carousel</option>' +
-  '<option value="Slider">Slider</option>' +
-  '<option value="Product Mini">Product Mini</option>' +
-  '<option value="Product SEO">Product SEO</option>' +
-  '<option value="Mini" selected>Mini</option>' +
-  '<option value="Carousel">Carousel</option>' +
-  '<option value="Slider">Slider</option>' +
-  '<option value="Product Mini">Product Mini</option>' +
-  '<option value="Product SEO">Product SEO</option>' +
-  '<option value="Mini" selected>Mini</option>' +
-  '<option value="Carousel">Carousel</option>' +
-  '<option value="Slider">Slider</option>' +
-  '<option value="Product Mini">Product Mini</option>' +
-  '<option value="Product SEO">Product SEO</option>' +
-  '<option value="Mini" selected>Mini</option>' +
-  '<option value="Carousel">Carousel</option>' +
-  '<option value="Slider">Slider</option>' +
-  '<option value="Product Mini">Product Mini</option>' +
-  '<option value="Product SEO">Product SEO</option>' +
-  '<option value="Mini" selected>Mini</option>' +
-  '<option value="Carousel">Carousel</option>' +
-  '<option value="Slider">Slider</option>' +
-  '<option value="Product Mini">Product Mini</option>' +
-  '<option value="Product SEO">Product SEO</option>' +
-  '<option value="Mini" selected>Mini</option>' +
-  '<option value="Carousel">Carousel</option>' +
-  '<option value="Slider">Slider</option>' +
-  '<option value="Product Mini">Product Mini</option>' +
-  '<option value="Product SEO">Product SEO</option>' +
-  '<option value="Mini" selected>Mini</option>' +
-  '<option value="Carousel">Carousel</option>' +
-  '<option value="Slider">Slider</option>' +
-  '<option value="Product Mini">Product Mini</option>' +
-  '<option value="Product SEO">Product SEO</option>' +
-  '<option value="Mini" selected>Mini</option>' +
-  '<option value="Carousel">Carousel</option>' +
-  '<option value="Slider">Slider</option>' +
-  '<option value="Product Mini">Product Mini</option>' +
-  '<option value="Product SEO">Product SEO</option>' +
-  '<option value="Mini" selected>Mini</option>' +
-  '<option value="Carousel">Carousel</option>' +
-  '<option value="Slider">Slider</option>' +
-  '<option value="Product Mini">Product Mini</option>' +
-  '<option value="Product SEO">Product SEO</option>' +
-'</select>';
+    var automationContainer = document.getElementById('automation-container');
+    automationContainer.style.display = 'block';
+    automationContainer.innerHTML = '<select style="margin-bottom:30px" name="language" id="language">' +
+      '<option value="activeCampaign">Active Campaign</option>' +
+      '<option value="Carousel">Carousel</option>' +
+      '<option value="Slider">Slider</option>' +
+      '<option value="Product Mini">Product Mini</option>' +
+      '<option value="Product SEO">Product SEO</option>' +
+      '</select>' +
+      '<button class="goBackToWidget">Go Back to Widget</button>';
 
-})
+    document.querySelector(".goBackToWidget").addEventListener("click", function() {
+      automationContainer.style.display = 'none';
+    });
+  });
 }
-
+renderAutomationScreen()
 
 </script>
 <!-- End your custom JavaScript code -->
