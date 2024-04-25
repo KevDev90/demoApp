@@ -67,7 +67,12 @@ document.addEventListener("DOMContentLoaded", function() {
 function renderAutomationScreen() {
   document.querySelector(".automation").addEventListener("click", function() {
     var automationContainer = document.getElementById('automation-container');
-    document.getElementById('widget-container').style.display = 'none';
+    var widgetContainer = document.getElementById('widget-container');
+
+    // Hide the widget container
+    widgetContainer.style.display = 'none';
+
+    // Show the automation container
     automationContainer.style.display = 'block';
     automationContainer.innerHTML = '<select style="margin-bottom:30px" name="language" id="language">' +
       '<option value="activeCampaign">Active Campaign</option>' +
@@ -78,9 +83,12 @@ function renderAutomationScreen() {
       '</select>' +
       '<button class="goBackToWidget">Go Back to Widget</button>';
 
+    // Add event listener to the goBackToWidget button
     document.querySelector(".goBackToWidget").addEventListener("click", function() {
+      // Hide the automation container
       automationContainer.style.display = 'none';
-      appendWidgetCode()
+      // Show the widget container
+      widgetContainer.style.display = 'block';
     });
   });
 }
