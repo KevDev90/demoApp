@@ -68,13 +68,16 @@ function renderAutomationScreen() {
   document.querySelector(".automation").addEventListener("click", function() {
     var automationContainer = document.getElementById('automation-container');
     var widgetContainer = document.getElementById('widget-container');
-document.getElementById('widget-selector').style.display = 'none';
+    var widgetSelector = document.getElementById('widget-selector');
+
     // Hide the widget container
     widgetContainer.style.display = 'none';
+    // Hide the widget selector
+    widgetSelector.style.display = 'none';
 
     // Show the automation container
     automationContainer.style.display = 'block';
-    automationContainer.innerHTML = '<select style="margin-bottom:30px" name="language" id="language">' +
+    automationContainer.innerHTML = '<select style="margin-bottom:30px" name="language" id="automation-language">' +
       '<option value="activeCampaign">Active Campaign</option>' +
       '<option value="Carousel">Carousel</option>' +
       '<option value="Slider">Slider</option>' +
@@ -89,6 +92,8 @@ document.getElementById('widget-selector').style.display = 'none';
       automationContainer.style.display = 'none';
       // Show the widget container
       widgetContainer.style.display = 'block';
+      // Show the widget selector
+      widgetSelector.style.display = 'block';
     });
   });
 }
