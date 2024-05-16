@@ -49,50 +49,7 @@ function renderAutomationScreen() {
 
   // Show the automation container
   automationContainer.style.display = 'block';
-  automationContainer.innerHTML = '<select style="margin-bottom:30px" name="language" id="automation-language">' +
-    '<option value="activeCampaign">Active Campaign</option>' +
-    '<option value="bgl">BGLs</option>' +
-    '<option value="bigCommerce">Big Commerce</option>' +
-    '<option value="braze">Braze</option>' +
-    '<option value="customer.io">Customer.io</option>' +
-    '<option value="evolutionX">Evolution X</option>' +
-    '<option value="freshdesk">Freshdesk</option>' +
-    '<option value="goHighLevel">GoHighLevel</option>' +
-    '<option value="helpScout">Helpscout</option>' +
-    '<option value="hubspot">Hubspot</option>' +
-    '<option value="infusionsoft">Infusionsoft (keap)</option>' +
-    '<option value="intercom">Intercom</option>' +
-    '<option value="isendu">Isendu</option>' +
-    '<option value="intercom">Intercom</option>' +
-    '<option value="jotform">Jotform</option>' +
-    '<option value="kajabi">Kajabi</option>' +
-    '<option value="klaviyo">Klaviyo</option>' +
-    '<option value="mailchimp">Mailchimp</option>' +
-    '<option value="mandrill">Mandrill</option>' +
-    '<option value="marketo">Marketo</option>' +
-    '<option value="monday.com">Monday.com</option>' +
-    '<option value="netsuite">Netsuite</option>' +
-    '<option value="nopcommerce">Nopcommerce</option>' +
-    '<option value="openCart">Opencart</option>' +
-    '<option value="pardot">Pardot</option>' +
-    '<option value="prestashop">Prestashop</option>' +
-    '<option value="quickbooks">Quickbooks</option>' +
-    '<option value="sailthru">Sailthru</option>' +
-    '<option value="salesforce">Salesforce</option>' +
-    '<option value="sendgrid">Sendgrid</option>' +
-    '<option value="shipstation">Shipstation</option>' +
-    '<option value="shopify">Shopify</option>' +
-    '<option value="squarespace">Squarespace</option>' +
-    '<option value="sugarCrm">Sugar CRM</option>' +
-    '<option value="twilio">Twilio</option>' +
-    '<option value="volusion">Volusion</option>' +
-    '<option value="whatsapp">Whatsapp</option>' +
-    '<option value="wix">Wix</option>' +
-    '<option value="woocommerce">Woocommerce</option>' +
-    '<option value="zapier">Zapier</option>' +
-    '<option value="zendesk">Zendesk</option>' +
-    '<option value="zoho">Zoho</option>' +
-    '</select>' +
+  automationContainer.innerHTML =
     '<button class="goBackToWidget">Go Back to Widget</button>';
 
   // Add event listener to the goBackToWidget button
