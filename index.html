@@ -62,30 +62,18 @@ function renderAutomationScreen() {
     widgetSelector.style.display = 'block';
   });
 
-  // Add event listener for change event
-  widgetSelector.addEventListener('change', function() {
-    // Get the selected value
-    var selectedOption = this.value;
-
-    // Append corresponding widget code based on selected option
-    if (selectedOption === 'Mini') {
-      appendWidgetCode('<!-- TrustBox widget - Mini --><div class="trustpilot-widget" data-locale="en-GB" data-template-id="53aa8807dec7e10d38f59f32" data-businessunit-id="63d2b393898cf1df6ab24eff" data-style-height="150px" data-style-width="100%" data-theme="light"><a href="https://uk.trustpilot.com/review/trustpilot-integration-demo.tp-testing.com" target="_blank" rel="noopener">Trustpilot</a></div><!-- End TrustBox widget -->');
-    } else if (selectedOption === 'Carousel') {
-      appendWidgetCode('<!-- TrustBox widget - Carousel --><div class="trustpilot-widget" data-locale="en-GB" data-template-id="53aa8912dec7e10d38f59f36" data-businessunit-id="63d2b393898cf1df6ab24eff" data-style-height="140px" data-style-width="100%" data-theme="light" data-stars="4,5" data-review-languages="en"><a href="https://uk.trustpilot.com/review/trustpilot-integration-demo.tp-testing.com" target="_blank" rel="noopener">Trustpilot</a></div><!-- End TrustBox widget -->');
-    } else if (selectedOption === 'Slider') {
-      appendWidgetCode('<!-- TrustBox widget - Slider --><div class="trustpilot-widget" data-locale="en-GB" data-template-id="54ad5defc6454f065c28af8b" data-businessunit-id="63d2b393898cf1df6ab24eff" data-style-height="240px" data-style-width="100%" data-theme="light" data-stars="4,5" data-review-languages="en"><a href="https://uk.trustpilot.com/review/trustpilot-integration-demo.tp-testing.com" target="_blank" rel="noopener">Trustpilot</a></div><!-- End TrustBox widget -->');
-    } else if (selectedOption === 'Product Mini') {
-      appendWidgetCode('<!-- TrustBox widget - Product Mini --><div class="trustpilot-widget" data-locale="en-GB" data-template-id="54d39695764ea907c0f34825" data-businessunit-id="63d2b393898cf1df6ab24eff" data-style-height="24px" data-style-width="100%" data-theme="light" data-sku="white-shirt" data-no-reviews="hide" data-scroll-to-list="true" data-style-alignment="center"><a href="https://uk.trustpilot.com/review/trustpilot-integration-demo.tp-testing.com" target="_blank" rel="noopener">Trustpilot</a></div><!-- End TrustBox widget -->');
-    } else if (selectedOption === 'Product SEO') {
-      // Add corresponding code for 'Product SEO' if needed
-    }
-  });
 }
 
 document.querySelector(".automation").addEventListener("click", renderAutomationScreen);
 
-</script>
-<!-- End your custom JavaScript code -->
+// Add event listener for change event on widget selector
+document.getElementById('widget-selector').addEventListener('change', function() {
+  var selectedOption = this.value;
 
-</body>
-</html>
+  // Append corresponding widget code based on selected option
+  if (selectedOption === 'Mini') {
+    appendWidgetCode('<!-- TrustBox widget - Mini --><div class="trustpilot-widget" data-locale="en-GB" data-template-id="53aa8807dec7e10d38f59f32" data-businessunit-id="63d2b393898cf1df6ab24eff" data-style-height="150px" data-style-width="100%" data-theme="light"><a href="https://uk.trustpilot.com/review/trustpilot-integration-demo.tp-testing.com" target="_blank" rel="noopener">Trustpilot</a></div><!-- End TrustBox widget -->');
+  } else if (selectedOption === 'Carousel') {
+    appendWidgetCode('<!-- TrustBox widget - Carousel --><div class="trustpilot-widget" data-locale="en-GB" data-template-id="53aa8912dec7e10d38f59f36" data-businessunit-id="63d2b393898cf1df6ab24eff" data-style-height="140px" data-style-width="100%" data-theme="light" data-stars="4,5" data-review-languages="en"><a href="https://uk.trustpilot.com/review/trustpilot-integration-demo.tp-testing.com" target="_blank" rel="noopener">Trustpilot</a></div><!-- End TrustBox widget -->');
+  } else if (selectedOption === 'Slider') {
+    appendWidgetCode('<!-- TrustBox widget - Slider --><div class="trustpilot-widget" data-locale="en-GB" data-template-id="54ad5defc6454f065c28af8b" data-businessunit-id="63d2b393898cf1df6ab24eff" data-style-height="240px" data
